@@ -1,0 +1,18 @@
+version: "3.5"
+services:
+  nats-0:
+    image: nats:2.7.4-alpine3.15
+    command: "-c /nats-config/nats.conf"
+    networks: ["nats"]
+  nats-1:
+    image: nats:2.7.4-alpine3.15
+    command: "-c /nats-config/nats.conf"
+    networks: ["nats"]
+  nats-2:
+    image: nats:2.7.4-alpine3.15
+    command: "-c /nats-config/nats.conf"
+    networks: ["nats"]
+
+networks:
+  nats:
+    name: nats
