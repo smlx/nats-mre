@@ -20,7 +20,7 @@ Incorrect log:
 ## Instructions
 
 Since the problem seems to be some kind of race condition, the `find.bug.sh` script will randomly restart nodes and connect/disconnect the client until the bug is found in the logs.
-In my testing the problem is reproduced within 10 seconds of running `find.bug.sh`.
+In my testing the problem is reproduced within 30 seconds of running `find.bug.sh`.
 
 Run `find.bug.sh` like this:
 
@@ -28,4 +28,4 @@ Run `find.bug.sh` like this:
 docker-compose up -d; ./find.bug.sh
 ```
 
-When the problem is found, it will exit and print the last 100 lines of logs.
+When the problem is found, it will exit and print the logs around the trace log showing the error.
