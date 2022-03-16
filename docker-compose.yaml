@@ -4,14 +4,35 @@ services:
     image: nats:2.7.4-alpine3.15
     command: "-c /nats-config/nats.conf"
     networks: ["nats"]
+    volumes:
+    - ./nats.conf:/nats-config/nats.conf
+    - ./lagoon-core.conf:/nats-config/lagoon-core/lagoon-core.conf
+    environment:
+    - POD_NAME=nats-0
+    - SERVER_NAME=nats-0
+    - CLUSTER_ADVERTISE=nats-0
   nats-1:
     image: nats:2.7.4-alpine3.15
     command: "-c /nats-config/nats.conf"
     networks: ["nats"]
+    volumes:
+    - ./nats.conf:/nats-config/nats.conf
+    - ./lagoon-core.conf:/nats-config/lagoon-core/lagoon-core.conf
+    environment:
+    - POD_NAME=nats-1
+    - SERVER_NAME=nats-1
+    - CLUSTER_ADVERTISE=nats-1
   nats-2:
     image: nats:2.7.4-alpine3.15
     command: "-c /nats-config/nats.conf"
     networks: ["nats"]
+    volumes:
+    - ./nats.conf:/nats-config/nats.conf
+    - ./lagoon-core.conf:/nats-config/lagoon-core/lagoon-core.conf
+    environment:
+    - POD_NAME=nats-2
+    - SERVER_NAME=nats-2
+    - CLUSTER_ADVERTISE=nats-2
 
 networks:
   nats:
