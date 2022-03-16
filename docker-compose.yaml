@@ -33,6 +33,10 @@ services:
     - POD_NAME=nats-2
     - SERVER_NAME=nats-2
     - CLUSTER_ADVERTISE=nats-2
+  nats-box:
+    image: natsio/nats-box:0.8.1
+    networks: ["nats"]
+    command: "-c 'gracekill(){kill -9 `jobs -p`}; trap gracekill TERM; sleep infinity & wait'"
 
 networks:
   nats:
